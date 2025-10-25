@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravigo! — Download</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="game-download-landing/src/css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#">
+                <!-- use your icon file placed in assets -->
+                <img src="./game-download-landing/src/assets/gravigo-icon.png" alt="Gravigo icon" class="brand-icon" />
+                <span class="brand-text">Gravigo!</span>
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="#features">Features</a>
+                <a href="#screens">Screens</a>
+                <a href="#download">Download</a>
+            </nav>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <h1>Play Gravigo — gravity‑switch platformer</h1>
+                    <p class="lead">Single‑player, level‑based platformer where you switch gravity to pass obstacles, move objects, and solve physics puzzles across handcrafted stages.</p>
+
+                    <div class="cta-row" id="download">
+                        <a class="button download primary" href="#" aria-label="Download for Windows">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <rect x="1" y="3" width="10" height="8" rx="1"/>
+                                <rect x="13" y="3" width="10" height="8" rx="1"/>
+                                <rect x="1" y="13" width="10" height="8" rx="1"/>
+                                <rect x="13" y="13" width="10" height="8" rx="1"/>
+                            </svg>
+                            Download for Windows
+                        </a>
+
+                        <a class="button download" href="#" aria-label="Download for macOS">
+                            <!-- if you want to use your external icon replace the <svg> with <img src="..."> -->
+                            <svg class="platform-logo" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M16.365 1.43c-.94.04-2.07.64-2.74 1.4-.58.67-1.11 1.87-.92 2.98 1.23.08 2.49-.64 3.17-1.4.55-.6 1-1.75.45-2.98zM12 5.5c-3.04 0-5.5 2.75-5.5 6.16 0 3.32 2.66 6.01 5.5 6.01 2.83 0 5.5-2.69 5.5-6.01 0-3.41-2.46-6.16-5.5-6.16z"/>
+                            </svg>
+                            macOS
+                        </a>
+                    </div>
+
+                    <ul class="badges">
+                        <li>Single player</li>
+                        <li>Level‑based</li>
+                        <li>Gravity switch</li>
+                        <li>Physics puzzles</li>
+                    </ul>
+                </div>
+
+                <div class="hero-visual" aria-hidden>
+                    <div class="hero-logo">
+                        <img src="./game-download-landing/src/assets/gravigo-logo.png" alt="Gravigo logo" class="logo-image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2>What makes it special</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Gravity Switch</h3>
+                    <p>Flip gravity on demand to traverse ceilings, avoid hazards, and discover alternate routes through each level.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Level Progression</h3>
+                    <p>Clear bite‑sized, handcrafted stages that introduce new obstacles and mechanics as you advance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Physics Puzzles</h3>
+                    <p>Manipulate objects, use momentum, and combine flips and jumps to solve environmental puzzles and reach the goal.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Gravigo — All rights reserved</small>
+            <div class="social">
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Discord">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // small interactions
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+
+    navToggle.addEventListener('click', function(){
+        const opened = nav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+
+    // close mobile nav when a link is clicked
+    document.querySelectorAll('.nav a').forEach(a => {
+        a.addEventListener('click', () => {
+            if (nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
